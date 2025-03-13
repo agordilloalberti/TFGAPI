@@ -1,0 +1,6 @@
+@TFGAPI_HostAddress = http://localhost:5256
+
+GET {{TFGAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1268,19 +1268,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\UsuarioT\\.nuget\\packages\\": {}
+    "C:\\Users\\Alvar\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Instituto\\TFG\\TFGAPI\\TFGAPI.csproj",
+      "projectUniqueName": "D:\\Instituto\\TFG\\TFGAPI\\TFGAPI.csproj",
       "projectName": "TFGAPI",
-      "projectPath": "G:\\Instituto\\TFG\\TFGAPI\\TFGAPI.csproj",
-      "packagesPath": "C:\\Users\\UsuarioT\\.nuget\\packages\\",
-      "outputPath": "G:\\Instituto\\TFG\\TFGAPI\\obj\\",
+      "projectPath": "D:\\Instituto\\TFG\\TFGAPI\\TFGAPI.csproj",
+      "packagesPath": "C:\\Users\\Alvar\\.nuget\\packages\\",
+      "outputPath": "D:\\Instituto\\TFG\\TFGAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\UsuarioT\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Alvar\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -1349,7 +1349,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

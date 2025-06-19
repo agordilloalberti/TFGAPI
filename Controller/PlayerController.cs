@@ -2,8 +2,6 @@
 using TFGAPI.Models;
 using TFGAPI.Services;
 
-namespace TFGAPI.Controller;
-
 [Route("api/[controller]")]
 [ApiController]
 public class PlayerController : ControllerBase
@@ -16,40 +14,44 @@ public class PlayerController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<Player>>> Get() => await _playerService.GetAllAsync();
+    public async Task<ActionResult<List<Player>>> Get() =>
+        await _playerService.GetAllAsync();
 
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Player>> Get(string id)
+    [HttpGet("{name}")]
+    public async Task<ActionResult<Player>> Get(string name)
     {
-        var player = await _playerService.GetByIdAsync(id);
+        var player = await _playerService.GetByNameAsync(name);
         return player is not null ? Ok(player) : NotFound();
     }
 
     [HttpPost]
     public async Task<IActionResult> Create(Player player)
     {
-        await _playerService.CreateAsync(player);
-        return CreatedAtAction(nameof(Get), new { id = player.Id }, player);
+        var success = await _playerService.CreateAsync(player);
+        if (!success) return Conflict("A player with that name already exists.");
+
+        return CreatedAtAction(nameof(Get), new { name = player.Name }, player);
     }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> Update(string id, Player player)
+
+    [HttpPut("{name}")]
+    public async Task<IActionResult> Update(string name, Player player)
     {
-        var existingPlayer = await _playerService.GetByIdAsync(id);
+        var existingPlayer = await _playerService.GetByNameAsync(name);
         if (existingPlayer is null) return NotFound();
 
-        player.Id = id;
-        await _playerService.UpdateAsync(id, player);
+        player.Name = name;
+        await _playerService.UpdateAsync(name, player);
         return NoContent();
     }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(string id)
+    [HttpDelete("{name}")]
+    public async Task<IActionResult> Delete(string name)
     {
-        var player = await _playerService.GetByIdAsync(id);
+        var player = await _playerService.GetByNameAsync(name);
         if (player is null) return NotFound();
 
-        await _playerService.DeleteAsync(id);
+        await _playerService.DeleteAsync(name);
         return NoContent();
     }
 }
